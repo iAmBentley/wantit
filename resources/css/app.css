@@ -1,6 +1,42 @@
-/* purgecss start ignore */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Ubuntu:400,400i,700,700i&display=swap');
+
 @tailwind base;
 @tailwind components;
-/* purgecss end ignore */
+
+
 
 @tailwind utilities;
+
+/* DEFAULTS */
+h1, h2, h3, h4 {
+	@apply font-header text-gray-800 font-bold;
+}
+h1 { 
+	@apply text-3xl text-gray-900 ;
+}
+h2 {
+	@apply text-2xl;
+}
+h3 {
+	@apply text-xl;
+}
+h4 {
+	@apply text-lg;
+}
+/* END --- DEFAULTS */
+
+/* ITEM LISTING CARD - Image Overlay on Hover */
+.image img {
+	filter: grayscale(100%);
+}
+.overlay, .overlay div {
+	@apply hidden;
+}
+.image:hover .overlay {
+	background-color: rgba(37,47,63,0.5);
+	@apply inline-block absolute h-full rounded-md top-0 w-full;
+}
+.image:hover .overlay div {
+	@apply flex justify-around items-end h-48 text-white;
+}
+/* END --- ITEM LISTING CARD - Image Overlay on Hover */
