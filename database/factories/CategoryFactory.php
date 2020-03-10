@@ -9,6 +9,6 @@ $factory->define(Category::class, function (Faker $faker) {
     return [
 		'name' => $faker->name,
 		'description' => $faker->optional()->paragraph($nbSentences = 3, $variableNbSentences = true),
-		'is_active' => $faker->randomElement($array = array ('1','2')),
+		'is_active' => $faker->boolean($chanceOfGettingTrue = 90),
     ];
 });
