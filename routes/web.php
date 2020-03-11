@@ -24,4 +24,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 	// ITEM ROUTES
 	Route::resource('items', 'ItemController');
+	Route::get('/items-list', function() {
+		return App\Item::with('category')->get();
+	});
 });
