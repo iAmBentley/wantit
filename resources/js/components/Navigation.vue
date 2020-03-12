@@ -1,6 +1,6 @@
 <template>
-	<nav role="navigation" class="bg-white shadow">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	<nav role="navigation" class="shadow">
+		<div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex items-center justify-between h-16">
 				<!-- Logo -->
 				<div class="flex items-center">
@@ -59,7 +59,7 @@
 				</div>
 			</div>
 		</div>
-		<div :class="{ 'hidden': !showMobileNav }" class="block">
+		<div :class="{ 'hidden': !showMobileNav }" class="block bg-gray-800">
 			<div class="px-2 pt-2 pb-3 sm:px-3">
 				<a href="/dashboard"
 					class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Dashboard</a>
