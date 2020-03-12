@@ -5,7 +5,7 @@
 				<!-- Logo -->
 				<div class="flex items-center">
 					<div class="flex-shrink-0">
-						<img class="w-24" src="#" alt="" />
+						<img class="w-24" src="/images/wantd.svg" alt="Wantd Black and White Logo" />
 					</div>
 				</div>
 				<!-- Desktop Navigation -->
