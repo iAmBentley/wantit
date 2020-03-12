@@ -8,37 +8,39 @@
 				</svg>
 			</button>
 		</div>
-		<div v-show="showSortMenu" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-10" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95">
-			<div class="rounded-md bg-white shadow-xs">
-				<div class="py-1">
-					<form method="POST" action="#">
-						<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-							Most Recent (Default)
-						</button>
-					</form>
-					<form method="POST" action="#">
-						<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-							Price (low to high)
-						</button>
-					</form>
-					<form method="POST" action="#">
-						<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-							Price (high to low)
-						</button>
-					</form>
-					<form method="POST" action="#">
-						<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-							Want'd Level (low to high)
-						</button>
-					</form>
-					<form method="POST" action="#">
-						<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-							Want'd Level (high to low)
-						</button>
-					</form>
+		<transition name="pop-out-quick">
+			<div v-show="showSortMenu" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-10">
+				<div class="rounded-md bg-white shadow-xs">
+					<div class="py-1">
+						<form method="POST" action="#">
+							<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+								Most Recent (Default)
+							</button>
+						</form>
+						<form method="POST" action="#">
+							<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+								Price (low to high)
+							</button>
+						</form>
+						<form method="POST" action="#">
+							<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+								Price (high to low)
+							</button>
+						</form>
+						<form method="POST" action="#">
+							<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+								Want'd Level (low to high)
+							</button>
+						</form>
+						<form method="POST" action="#">
+							<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+								Want'd Level (high to low)
+							</button>
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
+		</transition>
 	</div>
 </template>
 
