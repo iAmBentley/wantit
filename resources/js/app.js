@@ -15,6 +15,7 @@ window.Vue = require('vue');
 
 Vue.component('navigation', require('./components/Navigation.vue').default);
 Vue.component('items-list', require('./components/ItemsList.vue').default);
+Vue.component('items-sort-menu', require('./components/ItemsSortMenu.vue').default);
 
 const app = new Vue({
     el: '#app',

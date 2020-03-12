@@ -205,49 +205,7 @@
 						</h3>
 						<div class="flex items-center">
 							{{-- Sort Dropdown --}}
-							<div x-data="{ open: false }" @keydown.window.escape="open = false" @click.away="open = false" class="relative inline-block text-left">
-								<div>
-									<span>
-										<button @click="open = !open" type="button" class="active:bg-gray-50 active:text-gray-800 duration-150 ease-in-out focus:border-blue-300 focus:outline-none focus:shadow-outline-blue font-medium hover:text-gray-500 inline-flex justify-center leading-5 px-4 py-2 rounded text-gray-700 text-sm transition w-full">
-										Most Recent
-											<svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-												<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-											</svg>
-										</button>
-									</span>
-								</div>
-								<div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-10">
-									<div class="rounded-md bg-white shadow-xs">
-										<div class="py-1">
-											<form method="POST" action="#">
-												<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-													Most Recent (Default)
-												</button>
-											</form>
-											<form method="POST" action="#">
-												<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-													Price (low to high)
-												</button>
-											</form>
-											<form method="POST" action="#">
-												<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-													Price (high to low)
-												</button>
-											</form>
-											<form method="POST" action="#">
-												<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-													Want'd Level (low to high)
-												</button>
-											</form>
-											<form method="POST" action="#">
-												<button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
-													Want'd Level (high to low)
-												</button>
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
+							<items-sort-menu></items-sort-menu>
 							<button type="button" title="Table View" class="text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 transition duration-150 ease-in-out">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm14 8V5H5v6h14zm0 2H5v6h14v-6zM8 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
 							</button>
@@ -265,5 +223,5 @@
 			</div>
 		</div>
 	</main>
-	@include('layouts.modals.delete-item')
+	{{-- @include('layouts.modals.delete-item') --}}
 @endsection
