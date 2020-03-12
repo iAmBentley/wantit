@@ -10,4 +10,4 @@
 <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
 <!-- Alpine JS -->
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v1.9.3/dist/alpine.js" defer></script>
+<!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v1.9.3/dist/alpine.js" defer></script> -->
