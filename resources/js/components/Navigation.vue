@@ -1,6 +1,6 @@
 <template>
-	<nav role="navigation" class="shadow">
-		<div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	<nav role="navigation" class="shadow bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex items-center justify-between h-16">
 				<!-- Logo -->
 				<div class="flex items-center">
