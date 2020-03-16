@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Response;
+use App\Category;
 use App\Item;
 use Illuminate\Http\Request;
 
@@ -15,8 +15,10 @@ class ItemController extends Controller
      */
     public function index()
     {
-		$items_count = Item::count();
-		return view('items.index', compact('items_count'));
+		$items = Item::with('category')->paginate(9);
+		$categories = Category::where('is_active', 1)->get();
+
+		return view('items.index', compact('categories', 'items'));
     }
 
     /**
