@@ -24,7 +24,8 @@
 	</header>
 	<main>
 		<div class="lg:px-8 max-w-7xl mx-auto px-4 py-6">
-			<form>
+			<form method="POST" action="{{ route('items.update', $item) }}">
+				@csrf @method('PATCH')
 				<div class="flex flex-wrap justify-between">
 					{{-- IMAGE SIDE --}}
 					<div class="w-full md:w-1/4 md:pr-6 mb-8 md:mb-0">
@@ -76,7 +77,7 @@
 									<label for="url" class="block text-sm font-medium leading-5 text-gray-700">Item URL</label>
 									<div class="mt-2 flex rounded-md shadow-sm">
 										<div class="relative flex-grow focus-within:z-10">
-											<input id="url" class="form-input block w-full rounded-none rounded-l-md transition ease-in-out duration-150 sm:text-sm sm:leading-5" placeholder="www.amazon.com/product-name" value="https://www.amazon.com/Apple-Watch-GPS-40mm-Aluminum/dp/B07XR5TRSZ" />
+											<input id="url" name="url" class="form-input block w-full rounded-none rounded-l-md transition ease-in-out duration-150 sm:text-sm sm:leading-5" value="{{ $item->url }}" />
 										</div>
 										<button class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-r-md text-gray-700 bg-gray-50 hover:text-gray-500 hover:bg-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
 											<svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24">
@@ -93,7 +94,7 @@
 									Name
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<input id="name" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="Apple Watch w/ GPS, 40mm Space Gray Aluminum Case with Anchor Gray Sport Loop"/>
+									<input id="name" name="name" class="capitalize form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $item->name }}"/>
 								</div>
 							</div>
 							{{-- BRAND FIELD --}}
@@ -102,7 +103,7 @@
 									Brand
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<input id="brand" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="Apple"/>
+									<input id="brand" name="brand" class="capitalize form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $item->brand }}"/>
 								</div>
 							</div>
 							{{-- SIZE FIELD --}}
@@ -111,7 +112,7 @@
 									Size
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<input id="size" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="40mm" />
+									<input id="size" name="size" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $item->size }}" />
 								</div>
 							</div>
 							{{-- COLOR FIELD --}}
@@ -120,7 +121,7 @@
 									Color
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<input id="color" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="Space Gray"/>
+									<input id="color" name="color" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $item->color }}"/>
 								</div>
 							</div>
 							{{-- CATEGORY SELECT FIELD --}}
@@ -129,11 +130,10 @@
 									Category
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<select id="country" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-										<option>Bike Stuff</option>
-										<option>Audio</option>
-										<option>Bike Stuff</option>
-										<option>Computer</option>
+									<select id="country" class="capitalize form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+										@foreach($categories as $id => $cat)
+										<option value="{{ $id }}" {{ $item->category_id == $id ? 'selected' : '' }}>{{ $cat->name }}</option>
+										@endforeach
 									</select>
 								</div>
 							</div>
@@ -143,7 +143,7 @@
 									Quantity
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<input id="quantity" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="1" />
+									<input id="quantity" name="quantity" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $item->qty }}" />
 								</div>
 							</div>
 							{{-- PRICE FIELD --}}
@@ -152,7 +152,7 @@
 									Price
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<input id="price" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="399.99" />
+									<input id="price" name="price" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $item->price }}" />
 								</div>
 							</div>
 							{{-- DESCRIPTION FIELD --}}
@@ -161,7 +161,7 @@
 									Description
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<textarea id="description" rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">Built-in GPS, GLONASS, Galileo, and QZSS, S5 with 64-bit dual-core processor, W3 Apple wireless chip, Barometric altimeter, Capacity 32GB, Optical heart sensor, Electrical heart sensor, Improved accelerometer up to 32 g‑forces, Improved gyroscope, Ambient light sensor, LTPO OLED Always-On Retina display with Force Touch (1000 nits), Digital Crown with haptic feedback, Louder speaker, Ion-X strengthened glass, Sapphire crystal and ceramic back, Wi-Fi 802.11b/g/n 2.4GHz, Bluetooth 5.0, Built-in rechargeable lithium-ion battery, Up to 18 hours of battery life, Water resistant 50 meters, watchOS 5</textarea>
+									<textarea id="description" name="description" rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">{{ $item->description }}</textarea>
 								</div>
 							</div>
 							{{-- NOTES FIELD --}}
@@ -170,7 +170,7 @@
 									Notes
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<textarea id="notes" rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+									<textarea id="notes" name="notes" rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">{{ $item->notes }}</textarea>
 								</div>
 							</div>
 						</div>
@@ -179,9 +179,9 @@
 				<div class="mt-8 border-t border-gray-200 pt-5">
 					<div class="flex justify-end">
 						<span class="inline-flex rounded-md shadow-sm">
-							<button type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+							<a href="{{ URL::previous() }}" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
 								Cancel
-							</button>
+							</a>
 						</span>
 						<span class="ml-3 inline-flex rounded-md shadow-sm">
 							<button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-gray-600 hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition duration-150 ease-in-out">
