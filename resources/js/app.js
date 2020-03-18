@@ -21,8 +21,8 @@ Vue.component('delete-item-modal', require('./components/DeleteItemModal.vue').d
 const app = new Vue({
 	el: '#app',
 	methods: {
-		toggleModal(modal) {
-			this.$refs[modal].toggleDeleteModal();
+		toggleVisibilityOf(modal) {
+			this.$refs[modal].toggleModal();
 		}
 	}
 });
