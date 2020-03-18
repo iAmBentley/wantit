@@ -33,7 +33,8 @@ class ItemController extends Controller
 	
     public function edit(Item $item)
     {
-        return view('items.edit', compact('item'));
+		$categories = Category::where('is_active', 1)->get();
+        return view('items.edit', compact('categories', 'item'));
 	}
 	
     public function update(Request $request, $id)

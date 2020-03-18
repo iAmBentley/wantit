@@ -94,7 +94,7 @@
 									Name
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<input id="name" name="name" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $item->name }}"/>
+									<input id="name" name="name" class="capitalize form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $item->name }}"/>
 								</div>
 							</div>
 							{{-- BRAND FIELD --}}
@@ -103,7 +103,7 @@
 									Brand
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<input id="brand" name="brand" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $item->brand }}"/>
+									<input id="brand" name="brand" class="capitalize form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" value="{{ $item->brand }}"/>
 								</div>
 							</div>
 							{{-- SIZE FIELD --}}
@@ -130,11 +130,10 @@
 									Category
 								</label>
 								<div class="mt-1 rounded-md shadow-sm">
-									<select id="country" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-										<option>Bike Stuff</option>
-										<option>Audio</option>
-										<option>Bike Stuff</option>
-										<option>Computer</option>
+									<select id="country" class="capitalize form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+										@foreach($categories as $id => $cat)
+										<option value="{{ $id }}" {{ $item->category_id == $id ? 'selected' : '' }}>{{ $cat->name }}</option>
+										@endforeach
 									</select>
 								</div>
 							</div>
