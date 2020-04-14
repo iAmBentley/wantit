@@ -25,4 +25,6 @@ Route::middleware(['auth'])->group(function () {
 	// ITEM ROUTES
 	Route::resource('items', 'ItemController');
 	// Route::get('items-list', 'ItemListController@index')->name('items-list');
+	// USER ROUTES
+	Route::resource('users', 'UserController');
 });
